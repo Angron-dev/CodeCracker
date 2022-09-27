@@ -9,17 +9,17 @@ class CodeCracker
     public array $encodeSings = ["!", ")", '"', "(", "£", "*", "%", "&", ">", "<", "@", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"];
     public array $decodeSings = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    public function decode(string $inputValue)
+    public function decode(string $inputValue):string
     {
        return $this->logic($inputValue, $this->encodeSings, $this->decodeSings);
     }
 
-    public function encode(string $inputValue)
+    public function encode(string $inputValue):string
     {
        return $this->logic($inputValue, $this->decodeSings,$this->encodeSings);
     }
 
-    public function logic(string $inputValue, array $codeKey, array $codedSings)
+    public function logic(string $inputValue, array $codeKey, array $codedSings):string
     {
         $inputValueArray= mb_str_split(strtolower($inputValue));
 
